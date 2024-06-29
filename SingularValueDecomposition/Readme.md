@@ -29,18 +29,22 @@ Now we rotate the X, Y full 360 and keep applying the transformation through \(A
 
 Now we are at 2D but if we were to do it in very high dimensional data, the search method of finding the set of orthogonal vectors become difficult. We can find without search as follows:
 ```math
+\begin{aligned}
 A \mathbf{v_1} = \sigma_1 \mathbf{u_1} 
 \\
-A \mathbf{v_2} = \sigma_2 \mathbf{u_2} 
+A \mathbf{v_2} = \sigma_2 \mathbf{u_2}
+\end{aligned}
 ```
 
 In above `v` represents the vector and the result on the `RHS` is the transformed outcome which has been seperated into magnitude and its unit vector.
 
 **Writing in matrix form:**
 ```math
+\begin{aligned}
 A \begin{bmatrix} \mathbf{v_1} & \mathbf{v_2} \end{bmatrix} = \begin{bmatrix} \mathbf{u_1} & \mathbf{u_2} \end{bmatrix} \begin{bmatrix} \sigma_1 & 0 \\ 0 & \sigma_2 \end{bmatrix} 
 \\
-A V = U \Sigma 
+A V = U \Sigma
+\end{aligned}
 ```
 So, we now have to solve for \(V\) and \(U\) which are set of orthogonal vectors. That is if we find this matrix, we can say we did singular value decomposition of matrix \(A\).
 
@@ -55,7 +59,7 @@ A = U \Sigma V^T
 
 **Finding \( V \):**
 ```math
- 
+\begin{aligned}
 A^T A = (U \Sigma V^T)^T U \Sigma V^T
 \\ \; \\
 = V \Sigma^T U^T U \Sigma V^T
@@ -63,7 +67,7 @@ A^T A = (U \Sigma V^T)^T U \Sigma V^T
 = V \Sigma^T \Sigma V^T
 \\ \; \\
 = V \Sigma^2 V^T
-
+\end{aligned}
 ```
 Since \( U \) is orthogonal
 
@@ -92,7 +96,7 @@ A A^T = U \Sigma^2 U^T
 In mathematical terms: SVD solves:
 
 ```math
-\argmax \| A \mathbf{x} \| 
+argmax \| A \mathbf{x} \| 
 \\ \; \\
 x :  \| \mathbf{x} \| = 1 
 
@@ -134,6 +138,7 @@ Let is take an example of a matrix as shown below. Non of its rows or column are
 Now if we want to reduce the information, then we divide this matrix into sum of `n` 1 rank matrix and utilize only some of them, which results in the compression.
 
 ```math
+\begin{aligned}
 \text{We turn the above high rank matrix into sum of 4 rank 1 matrices.}
 \\ \; \\
 = \sum_{i=1}^{4} \sigma_i \mathbf{u}_i \mathbf{v}_i^T
@@ -180,7 +185,7 @@ u_4 \\
 \begin{pmatrix}
 v_4^T \\
 \end{pmatrix}
-
+\end{aligned}
 ```
 
 So if we consider this matrix as image then :
